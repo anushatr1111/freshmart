@@ -1,0 +1,33 @@
+# Virtual environment
+venv/
+env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django-related files
+db.sqlite3
+media/
+staticfiles/
+*.log
+
+# Environment variables
+.env
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore deployment files
+.DS_Store
+*.pem
+Procfile
+
+# Ignore Python cache
+*.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Products</h1>
+    
+    <div class="product-container">
+        {% if products %}
+            {% for product in products %}
+                <div class="product-card">
+                    <h2><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h2>
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                    <p>Price: ${{ product.price }}</p>
+                    <p>{{ product.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No products available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
